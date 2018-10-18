@@ -1,5 +1,6 @@
 package com.eskyray.im.ui.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
@@ -17,7 +18,7 @@ import android.widget.ViewFlipper;
 
 import com.eskyray.im.R;
 
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends Activity {
     protected Context mContext;
 
     private ViewFlipper mContentView;

@@ -148,11 +148,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         }
 
         @Override
-        public android.support.v4.app.FragmentManager getSupportFragmentManager() {
-            return null;
-        }
-
-        @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.reg_login:
@@ -255,13 +250,20 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             @Override
             protected void onPostExecute(Boolean result) {
                 if (result) {
-                    Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                    NToast.shortToast(mContext, R.string.register_success);
+                    LoadDialog.dismiss(mContext);
+                    Intent data = new Intent();
+                    data.putExtra("phone", mPhone);
+                    data.putExtra("password", mPassword);
+                    data.putExtra("nickname", mNickName);
+                    setResult(REGISTER_BACK, data);
 
                     try {
                         Thread.sleep(2000);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    finish();
                 } else {
                     Toast.makeText(RegisterActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
                 }
