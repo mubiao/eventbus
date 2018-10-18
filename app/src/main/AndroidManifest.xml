@@ -2,6 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.eskyray.im">
 
+    <!--获取internet访问权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +24,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.LoginActivity" />
+
+        <!--登录页面-->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!--注册页面-->
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
     </application>
 
