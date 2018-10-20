@@ -3,6 +3,7 @@
     package="com.eskyray.im">
 
     <!--获取internet访问权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -37,6 +38,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
+        <!-- 找回密码-->
+        <activity
+            android:name=".ui.activity.ForgetPasswordActivity"
+            android:screenOrientation="portrait" />
+
         <!--主页面-->
         <activity
             android:name=".ui.activity.MainActivity"
@@ -55,6 +61,16 @@
         <activity
             android:name=".ui.activity.ChatActivity"
             android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--选择联系人 多人聊天-->
+        <activity
+            android:name=".ui.activity.SelectFriendsActivity"
+            android:screenOrientation="portrait" />
+
+        <!--创建群组-->
+        <activity
+            android:name=".ui.activity.CreateGroupActivity"
             android:screenOrientation="portrait" />
 
     </application>

@@ -2,11 +2,15 @@ package com.eskyray.im.ui.beans;
 
 import com.eskyray.im.manager.ConnectionManager;
 
+import java.io.Serializable;
+
 /**
  *  联系人信息
  *
  */
-public class FriendInfo {
+public class FriendInfo implements Serializable{
+
+
 
     private String username;
 

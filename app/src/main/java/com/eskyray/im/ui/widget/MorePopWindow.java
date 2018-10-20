@@ -46,21 +46,8 @@ public class MorePopWindow extends PopupWindow {
 
 
         RelativeLayout re_addfriends = (RelativeLayout) content.findViewById(R.id.re_addfriends);
-        RelativeLayout re_chatroom = (RelativeLayout) content.findViewById(R.id.re_chatroom);
         RelativeLayout re_scanner = (RelativeLayout) content.findViewById(R.id.re_scanner);
         re_addfriends.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(new Intent(context, SelectFriendsActivity.class));
-                intent.putExtra("createGroup", true);
-                context.startActivity(intent);
-                MorePopWindow.this.dismiss();
-
-            }
-
-        });
-        re_chatroom.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {

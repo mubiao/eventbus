@@ -358,4 +358,6 @@
     <string name="cs_evaluate_tag_must">必须选择标签</string>
     <string name="cs_evaluate_input_must">必须输入建议</string>
     <string name="cs_evaluate_select_must">必选</string>
+
+    <string name="rc_item_create_group">创建群组</string>
 </resources>

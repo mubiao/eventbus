@@ -47,4 +47,14 @@
         <item name="android:windowBackground">@drawable/ic_attach_record</item>
     </style>
 
+    <style name="MyCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+
+        <item name="android:button">@drawable/de_pic_checkbox</item>
+
+    </style>
+
+    <style name="dialogFullscreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>
