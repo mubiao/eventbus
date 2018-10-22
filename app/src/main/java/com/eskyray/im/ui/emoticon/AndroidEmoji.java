@@ -144,9 +144,7 @@ public class AndroidEmoji {
                         codePoint = chars[i];
                     }
 
-                    if (sEmojiMap.containsKey(codePoint)) {
                         return true;
-                    }
                 }
             }
 

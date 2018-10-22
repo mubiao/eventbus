@@ -360,4 +360,31 @@
     <string name="cs_evaluate_select_must">必选</string>
 
     <string name="rc_item_create_group">创建群组</string>
+    <string name="input_group_name">输入群名及加群密码</string>
+    <string name="hint_group_name">群名</string>
+    <string name="hint_group_password">密码</string>
+    <string name="go_back">返回</string>
+
+
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载…</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+
+    <string name="message">消息</string>
+    <string name="linkman">联系人</string>
+    <string name="user">用户</string>
+    <string name="extra">更多</string>
+
+    <string name="send">发送</string>
+    <string name="empty"></string>
+
+
+    <string name="picture">相册</string>
+    <string name="camera">照相机</string>
+    <string name="sound">语音</string>
+    <string name="click_to_record">点击录音</string>
+    <string name="source_record_cancel">取消</string>
+    <string name="source_record_send">发送</string>
+    <string name="source_record_return">返回</string>
 </resources>

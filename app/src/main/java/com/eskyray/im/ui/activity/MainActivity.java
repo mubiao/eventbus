@@ -25,6 +25,7 @@ import com.eskyray.im.manager.BroadcastManager;
 import com.eskyray.im.server.utils.NLog;
 import com.eskyray.im.server.utils.NToast;
 import com.eskyray.im.ui.fragment.ContactsFragment;
+import com.eskyray.im.ui.fragment.MessageFragment;
 import com.eskyray.im.ui.widget.DragPointView;
 import com.eskyray.im.ui.widget.HomeWatcherReceiver;
 import com.eskyray.im.ui.widget.MorePopWindow;
@@ -97,6 +98,7 @@ public class MainActivity extends FragmentActivity implements
         mUnreadNumView.setOnClickListener(this);
         mUnreadNumView.setDragListencer(this);
 
+        mFragment.add(new MessageFragment());
         mFragment.add(new ContactsFragment());
 //        mFragment.add(new MineFragment());
         FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {

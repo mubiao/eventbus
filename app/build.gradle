@@ -25,7 +25,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation 'org.igniterealtime.smack:smack-android-extensions:4.1.4'
-    implementation 'org.igniterealtime.smack:smack-tcp:4.1.4'
+    implementation 'org.igniterealtime.smack:smack-android-extensions:4.1.9'
+    implementation 'org.igniterealtime.smack:smack-tcp:4.1.9'
     implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.51'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation 'com.mcxiaoke.volley:library:1.0.19'
 }
