@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.example.wtr.im.xlistview.XListView
+    <com.eskyray.im.ui.widget.XListView
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:id="@+id/xListView"
         android:cacheColorHint="#00000000"
         >
 
-    </com.example.wtr.im.xlistview.XListView>
+    </com.eskyray.im.ui.widget.XListView>
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.eskyray.im.ui.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -19,39 +20,32 @@ import com.eskyray.im.ui.activity.AboutActivity;
 import com.eskyray.im.ui.activity.LoginActivity;
 import com.eskyray.im.ui.widget.CustomPopWindow;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
 /**
  * 设置页
  */
 
-public class SettingFragment extends Fragment implements View.OnClickListener {
-
+public class SettingFragment extends Fragment {
+    private Unbinder unbinder;
     private Context mContext;//上下文
-    private View view;//设置view
-    private RelativeLayout about;//作者
-    private RelativeLayout exit;//退出
-    private TextView name;//昵称
 
-    @Nullable
+    @BindView(R.id.rl_app_exit)
+    RelativeLayout exit;//退出
+
+    @BindView(R.id.name)
+    TextView name;//昵称
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
-        view = inflater.inflate(R.layout.fragment_setting, container);
-        findView();
-        init();
+        View view = inflater.inflate(R.layout.fragment_setting, container, false);
+        unbinder = ButterKnife.bind(this, view);
         initName();
         return view;
-    }
-
-
-    private void findView() {
-        about = (RelativeLayout) view.findViewById(R.id.rl_about);
-        exit = (RelativeLayout) view.findViewById(R.id.rl_app_exit);
-        name = (TextView) view.findViewById(R.id.name);
-    }
-
-    private void init() {
-        about.setOnClickListener(this);
-        exit.setOnClickListener(this);
     }
 
     private void initName() {
@@ -60,28 +54,29 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        Intent intent = null;
-        switch (view.getId()) {
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @OnClick({R.id.rl_about, R.id.rl_app_exit})
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.rl_about:
-                intent = new Intent(mContext, AboutActivity.class);
+                Intent intent = new Intent(mContext, AboutActivity.class);
                 startActivity(intent);
                 break;
             case R.id.rl_app_exit:
-                showPopView(exit);
+                View popview = LayoutInflater.from(mContext).inflate(R.layout.pop_exit, null);
+                //创建并显示popWindow
+                CustomPopWindow popWindow = new CustomPopWindow.PopupWindowBuilder(mContext)
+                        .setView(popview)
+                        .setAnimationStyle(android.R.style.Animation_InputMethod)
+                        .create()
+                        .showAtLocation(exit, Gravity.BOTTOM, 0, 0);
+                initPop(popWindow, popview);
                 break;
         }
-    }
-
-    private void showPopView(RelativeLayout exit) {
-        View popview = LayoutInflater.from(mContext).inflate(R.layout.pop_exit, null);
-        //创建并显示popWindow
-        CustomPopWindow popWindow = new CustomPopWindow.PopupWindowBuilder(mContext)
-                .setView(popview)
-                .setAnimationStyle(android.R.style.Animation_InputMethod)
-                .create()
-                .showAtLocation(exit, Gravity.BOTTOM, 0, 0);
-        initPop(popWindow, popview);
 
     }
 

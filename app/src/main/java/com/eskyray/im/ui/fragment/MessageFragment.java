@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ import java.util.List;
  * Created by wtr on 2017/6/30.
  */
 
-public class MessageFragment extends android.support.v4.app.Fragment implements XListView.IXListViewListener{
+public class MessageFragment extends Fragment implements XListView.IXListViewListener{
     private View view;
     private DisplayImageOptions options;
     final private ImageLoader imageLoader = ImageLoader.getInstance();
