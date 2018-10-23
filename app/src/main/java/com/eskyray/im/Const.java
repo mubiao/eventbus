@@ -6,6 +6,12 @@ package com.eskyray.im;
 
 //所有常量
 public class Const {
+    //服务器地址、服务器名称、端口
+    public static final String IM_HOST = "192.168.31.43";
+    public static final String IM_SERVER = "lwb-pc";
+
+
+    public static final int IM_PORT = 5222;
     public static final String XMPP_HOST = "192.168.31.43";    //OpenFire服务器IP地址
     public static final int XMPP_PORT = 5222;                     //端口号
     public static final String ACTION_IS_LOGIN_SUCCESS = "com.example.wtr.im.is_login_success"; //登录状态广播

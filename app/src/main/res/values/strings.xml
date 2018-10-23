@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">im</string>
+    <string name="setting">设置</string>
+    <string name="nofitication">通知栏开关</string>
+    <string name="about_author">关于作者</string>
+    <string name="clear_msg">清理聊天记录</string>
+    <string name="msg_alert">消息提醒方式</string>
+    <string name="app_auther">郭峰</string>
 
     <!--主页-->
     <string name="main_name">融云</string>
