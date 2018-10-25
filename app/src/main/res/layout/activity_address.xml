@@ -50,19 +50,12 @@
             android:visibility="gone"/>
     </FrameLayout>
 
-    <ExpandableListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
+    <ListView
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:divider="@null"/>
-    <TextView
-        android:id="@+id/show_no_friend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:text="@string/No_friends"
-        android:textColor="@color/group_list_gray"
-        android:visibility="gone" />
+        android:id="@+id/simpleListView"
+        android:cacheColorHint="#00000000"
+        android:dividerHeight="1px"
+        android:divider="#fff">
+    </ListView>
 </LinearLayout>

@@ -7,6 +7,8 @@ import com.eskyray.im.server.XMPPService;
 import com.eskyray.im.ui.beans.Conversation;
 import com.eskyray.im.ui.beans.GroupItem;
 import com.eskyray.im.ui.beans.PeopleItem;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smackx.muc.MultiUserChat;
@@ -66,6 +68,12 @@ public class MyApplication extends Application {
         super.onCreate();
         myApplicationContext = this;
         myAppContext = getApplicationContext();
+        //创建默认的ImageLoader配置参数
+        ImageLoaderConfiguration configuration = ImageLoaderConfiguration
+                .createDefault(this);
+
+        //Initialize ImageLoader with configuration.
+        ImageLoader.getInstance().init(configuration);
     }
 
     public static Context getMyAppContext() {

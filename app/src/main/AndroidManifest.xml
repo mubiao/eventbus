@@ -73,6 +73,10 @@
         <activity
             android:name=".ui.activity.CreateGroupActivity"
             android:screenOrientation="portrait" />
+
+        <!--群聊页面-->
+        <activity android:name=".ui.activity.ShowConversationActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 

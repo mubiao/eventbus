@@ -393,4 +393,10 @@
     <string name="source_record_cancel">取消</string>
     <string name="source_record_send">发送</string>
     <string name="source_record_return">返回</string>
+
+    <string name="friends">好友</string>
+    <string name="newfriend">新朋友</string>
+    <string name="zero_per_zero">0/0</string>
+    <string name="boysign">♂</string>
+    <string name="girlsign">♀</string>
 </resources>
