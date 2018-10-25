@@ -16,7 +16,7 @@ public class PreferencesUtil {
     //获取String类型
     public static String getSharedPreStr(Context myContext,String key){
         SharedPreferences sp = (SharedPreferences) myContext.getSharedPreferences(NAME,0);
-        String s = sp.getString(key,"");
+        String s = sp.getString(key,"admin");
         return s;
     }
 }

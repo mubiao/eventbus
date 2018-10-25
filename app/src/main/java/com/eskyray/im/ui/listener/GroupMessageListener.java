@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.eskyray.im.Const;
 import com.eskyray.im.server.XMPPService;
 
+import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.packet.Message;
@@ -16,15 +17,15 @@ import org.jivesoftware.smack.packet.Stanza;
  * Created by wtr on 2017/12/21.
  */
 
-public class GroupMessageListener implements PacketListener {
+public class GroupMessageListener implements MessageListener {
     XMPPService context;
-    public GroupMessageListener(XMPPService context){
+
+    public GroupMessageListener(XMPPService context) {
         this.context = context;
     }
 
     @Override
-    public void processPacket(Stanza packet) throws SmackException.NotConnectedException {
-        Message message = (Message) packet;
+    public void processMessage(Message message) {
         String msgBody = message.getBody();
         //如果消息为空
         if (TextUtils.isEmpty(msgBody))

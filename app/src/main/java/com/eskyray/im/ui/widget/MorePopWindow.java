@@ -14,6 +14,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.eskyray.im.R;
+import com.eskyray.im.ui.activity.CreateGroupActivity;
 import com.eskyray.im.ui.activity.SearchFriendActivity;
 import com.eskyray.im.ui.activity.SelectFriendsActivity;
 
@@ -51,7 +52,7 @@ public class MorePopWindow extends PopupWindow {
 
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, SelectFriendsActivity.class));
+                context.startActivity(new Intent(context, CreateGroupActivity.class));
                 MorePopWindow.this.dismiss();
 
             }

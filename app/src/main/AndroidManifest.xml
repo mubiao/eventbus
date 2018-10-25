@@ -70,7 +70,9 @@
             android:screenOrientation="portrait" />
 
         <!--创建群组-->
-
+        <activity
+            android:name=".ui.activity.CreateGroupActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 
