@@ -56,8 +56,6 @@ public class XMPPService extends Service {
     public void onCreate() {
         super.onCreate();
         myContext = this;
-        username = PreferencesUtil.getSharedPreStr(myContext, "username");
-        password = PreferencesUtil.getSharedPreStr(myContext, "password");
         initXMPPTask();
     }
 
@@ -98,7 +96,6 @@ public class XMPPService extends Service {
         }
 
         try {
-            connection.login(username, password);//登录
             //如果登录成功
             if (xmppConnection.isAuthenticated()) {
                 MyApplication.setXmppService(this);
@@ -109,7 +106,6 @@ public class XMPPService extends Service {
                 peopleItem.setName(username);
                 MyApplication.setUser(peopleItem);
 
-                sendLoginBroadcast(true);
                 //添加XMPP连接监听
                 checkConnectionListener = new CheckConnectionListener(this);
                 xmppConnection.addConnectionListener(checkConnectionListener);
@@ -119,23 +115,14 @@ public class XMPPService extends Service {
                 //更新数据
                 ReFreshDataUtil.reFreshPeopleList();
             } else {
-                sendLoginBroadcast(false);
                 stopSelf();
             }
         } catch (Exception e) {
             e.printStackTrace();
-            sendLoginBroadcast(false);
             stopSelf();
         }
 
 
-    }
-
-    //发送登录状态广播
-    void sendLoginBroadcast(boolean isLoginSuccess) {
-        Intent intent = new Intent(Const.ACTION_IS_LOGIN_SUCCESS);
-        intent.putExtra("isLoginSuccess", isLoginSuccess);
-        sendBroadcast(intent);
     }
 
     public XMPPService getThisService() {

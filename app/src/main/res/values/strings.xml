@@ -399,4 +399,8 @@
     <string name="zero_per_zero">0/0</string>
     <string name="boysign">♂</string>
     <string name="girlsign">♀</string>
+    <string name="signature">个性签名</string>
+    <string name="groupinfo">群介绍</string>
+    <string name="require_join_group">加入该群</string>
+    <string name="require_add_friend">加为好友</string>
 </resources>

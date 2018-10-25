@@ -1,5 +1,6 @@
 package com.eskyray.im.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -21,8 +22,11 @@ import android.widget.Toast;
 import com.eskyray.im.R;
 import com.eskyray.im.SealConst;
 import com.eskyray.im.manager.ConnectionManager;
+import com.eskyray.im.server.XMPPService;
 import com.eskyray.im.server.utils.AMUtils;
 import com.eskyray.im.server.utils.NToast;
+import com.eskyray.im.server.utils.PreferencesUtil;
+import com.eskyray.im.server.utils.ServiceUtil;
 import com.eskyray.im.ui.widget.ClearWriteEditText;
 import com.eskyray.im.ui.widget.LoadDialog;
 
@@ -43,12 +47,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
     private String loginToken;
+    private Context myContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setHeadVisibility(View.GONE);
+        myContext=this;
         sp = getSharedPreferences("config", MODE_PRIVATE);
         editor = sp.edit();
         initView();
@@ -184,6 +190,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         @Override
         protected void onPostExecute(Boolean result) {
             if (result) {
+                //非空后存入SharedPreference
+                PreferencesUtil.putSharedPre(myContext,"username",phoneString);
+                PreferencesUtil.putSharedPre(myContext,"password",passwordString);
+                //启动服务进行XMPP连接以及登录等操作
+                if(ServiceUtil.isServiceRunning(myContext,XMPPService.class.getName())){
+                    Intent stopIntent = new Intent(myContext, XMPPService.class);
+                    stopService(stopIntent);
+                }
+                Intent intent = new Intent(myContext, XMPPService.class);
+                startService(intent);
                 Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                 goToMain();
             } else {

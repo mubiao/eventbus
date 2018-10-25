@@ -34,9 +34,12 @@ import org.jivesoftware.smackx.xdata.Form;
 import org.jivesoftware.smackx.xdata.FormField;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by wtr on 2017/6/29.
@@ -93,12 +96,16 @@ public class XMPPUtil {
     }
 
     //发送好友申请
-    public static void applyForFriend(XMPPConnection xmppConnection, String username, String message) throws SmackException.NotConnectedException {
+    public static void applyForFriend(XMPPConnection xmppConnection, String username, String message) {
         Presence subscription = new Presence(Presence.Type.subscribe);
         subscription.setTo(username + "@" + xmppConnection.getServiceName());  //接收方
         subscription.setFrom(xmppConnection.getUser());  //发送方
         subscription.setStatus(message);  //消息
-        xmppConnection.sendStanza(subscription);   //发送
+        try {
+            xmppConnection.sendStanza(subscription);   //发送
+        } catch (SmackException.NotConnectedException e) {
+            e.printStackTrace();
+        }
     }
 
     //发送同意好友申请
@@ -113,7 +120,14 @@ public class XMPPUtil {
 
     //返回所有用户信息
     public static List<RosterEntry> getAllEntries(XMPPConnection xmppConnection) {
-        return null;
+        Set<RosterEntry> rosterEntry = Roster.getInstanceFor(xmppConnection).getEntries();
+        List<RosterEntry> EntriesList = new ArrayList<>();
+        Iterator<RosterEntry> i = rosterEntry.iterator();
+        while (i.hasNext()) {
+            RosterEntry rosterentry = i.next();
+            EntriesList.add(rosterentry);
+        }
+        return EntriesList;
     }
 
     //判断是否为好友
